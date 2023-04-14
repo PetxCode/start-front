@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { iInput } from "../types";
-import { registerCompany } from "../utils/APIs/apiCalls";
 
 const InputData: React.FC<iInput> = ({
   inputTitle,
