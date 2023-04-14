@@ -6,6 +6,11 @@ const ResetPassword = () => {
     <div>
       <Main>
         <Card
+          reg={true}
+          tex={false}
+          textTitle="llll"
+          message="lliii"
+          remake="ppol"
           buttonTitle="Reset Password"
           title="Reset Password"
           inputTitle="Email"

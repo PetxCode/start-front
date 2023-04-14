@@ -4,10 +4,13 @@ import App from "./App";
 import "./index.css";
 import { RouterProvider } from "react-router-dom";
 import { mainRouter } from "./router/mainRouter";
+import { ShareState } from "./Global/shareState";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={mainRouter} />
+    <ShareState>
+      <RouterProvider router={mainRouter} />
+    </ShareState>
 
     {/* <App /> */}
   </React.StrictMode>,

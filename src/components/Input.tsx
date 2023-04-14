@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import { iInput } from "../types";
+import { GlobalContext } from "../Global/shareState";
+import { iGlobal, iInput } from "../types";
 
 const InputData: React.FC<iInput> = ({
   inputTitle,
@@ -8,22 +9,51 @@ const InputData: React.FC<iInput> = ({
   inputTitle2,
   sign,
   request,
-  password,
-  userName,
-  setUserName,
-  setPassword,
-  onChange,
+  //   password,
+  //   userName,
+  //   setUserName,
+  //   setPassword,
+  //   onChange,
 }) => {
+  const {
+    email,
+    password,
+    userName,
+    setEmail,
+    setUserName,
+    setPassword,
+  }: iGlobal | any = useContext(GlobalContext);
+
+  console.log(email);
+
   return (
     <div>
       <Field>
         <Form>
-          <Input placeholder={inputTitle} onChange={(e: any) => {}} />
+          <Input
+            placeholder={inputTitle}
+            value={email}
+            onChange={(e: any) => {
+              setEmail(e.target.value);
+            }}
+          />
           {sign ? (
-            <Input placeholder={inputTitle1} onChange={(e: any) => {}} />
+            <Input
+              placeholder={inputTitle1}
+              value={password}
+              onChange={(e: any) => {
+                setPassword(e.target.value);
+              }}
+            />
           ) : null}
           {request ? (
-            <Input placeholder={inputTitle2} onChange={(e: any) => {}} />
+            <Input
+              placeholder={inputTitle2}
+              value={userName}
+              onChange={(e: any) => {
+                setUserName(e.target.value);
+              }}
+            />
           ) : null}
         </Form>
       </Field>

@@ -1,7 +1,11 @@
 import styled from "styled-components";
 import Card from "../../components/Card";
+import { GlobalContext } from "../../Global/shareState";
+import React, { useContext } from "react";
+import { register } from "../../utils/API/api";
 
 const Register = () => {
+  const { email, password, userName } = useContext(GlobalContext);
   return (
     <div>
       <Main>
@@ -15,6 +19,8 @@ const Register = () => {
           request={true}
           onClick={() => {
             console.log(" I am");
+            console.log(" I am: ", email, password, userName);
+            register("company/create", { email, password, userName });
           }}
           text="Aleady have an Account"
           route="Sign in Now"

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { iButton } from "../types";
 
-const Button: React.FC<iButton> = ({ buttonTitle, c, bg, onClick }) => {
+const Button: React.FC<any> = ({ buttonTitle, c, bg, onClick }) => {
   return (
     <div>
       <Main bg={bg} c={c} onClick={onClick}>

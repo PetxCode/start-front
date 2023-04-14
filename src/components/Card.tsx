@@ -4,6 +4,7 @@ import { iButton, iCard } from "../types";
 import Button from "./Button";
 import InputData from "./Input";
 import { Link } from "react-router-dom";
+import TestField from "./Static/TestField";
 
 const Card: React.FC<iCard> = ({
   title,
@@ -30,39 +31,55 @@ const Card: React.FC<iCard> = ({
   email,
   userName,
   password,
+
+  textTitle,
+  message,
+  remake,
+  reg,
+  tex,
 }) => {
   return (
     <div>
       <Main>
-        <Text>{title}</Text>
-        <InputData
-          inputTitle={inputTitle}
-          inputTitle1={inputTitle1}
-          inputTitle2={inputTitle2}
-          sign={sign}
-          request={request}
-          email={email}
-          userName={userName}
-          password={password}
-          onChange={onChange}
-          setEmail={setEmail}
-          setPassword={setPassword}
-          setUserName={setUserName}
-        />
-        <Button
-          buttonTitle={buttonTitle}
-          bg="#000269"
-          c="white"
-          onClick={onClick}
-        />
-        <Content>
-          {text}, <Span to={`${path}`}>{route}</Span>
-        </Content>
-        {call ? (
-          <Content>
-            {text1}, <Span to={`${path1}`}>{route1}</Span>
-          </Content>
+        {tex ? (
+          <TestField textTitle={textTitle} message={message} remake={remake} />
         ) : null}
+
+        <div>
+          {reg ? (
+            <Field>
+              <Text>{title}</Text>
+              <InputData
+                inputTitle={inputTitle}
+                inputTitle1={inputTitle1}
+                inputTitle2={inputTitle2}
+                sign={sign}
+                request={request}
+                email={email}
+                userName={userName}
+                password={password}
+                onChange={onChange}
+                setEmail={setEmail}
+                setPassword={setPassword}
+                setUserName={setUserName}
+              />
+              <Button
+                buttonTitle={buttonTitle}
+                bg="#000269"
+                c="white"
+                onClick={onClick}
+              />
+              <Content>
+                {text}, <Span to={`${path}`}>{route}</Span>
+              </Content>
+              {call ? (
+                <Content>
+                  {text1}, <Span to={`${path1}`}>{route1}</Span>
+                </Content>
+              ) : null}
+            </Field>
+          ) : null}
+        </div>
       </Main>
     </div>
   );
