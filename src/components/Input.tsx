@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { iInput } from "../types";
+import { registerCompany } from "../utils/APIs/apiCalls";
 
 const InputData: React.FC<iInput> = ({
   inputTitle,
@@ -8,39 +9,22 @@ const InputData: React.FC<iInput> = ({
   inputTitle2,
   sign,
   request,
-  //   email,
   password,
   userName,
-  //   setEmail,
   setUserName,
   setPassword,
   onChange,
 }) => {
-  const [email, setEmail] = useState("");
   return (
     <div>
       <Field>
         <Form>
-          <Input
-            placeholder={inputTitle}
-            value={email}
-            onChange={(e: any) => {
-              setEmail(e.target.value);
-            }}
-          />
+          <Input placeholder={inputTitle} onChange={(e: any) => {}} />
           {sign ? (
-            <Input
-              placeholder={inputTitle1}
-              value={password}
-              onChange={onChange}
-            />
+            <Input placeholder={inputTitle1} onChange={(e: any) => {}} />
           ) : null}
           {request ? (
-            <Input
-              placeholder={inputTitle2}
-              value={userName}
-              onChange={onChange}
-            />
+            <Input placeholder={inputTitle2} onChange={(e: any) => {}} />
           ) : null}
         </Form>
       </Field>

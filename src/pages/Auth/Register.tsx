@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import Card from "../../components/Card";
+import { registerCompany } from "../../utils/APIs/apiCalls";
 
 const Register = () => {
   return (
@@ -11,7 +12,7 @@ const Register = () => {
           title="Register"
           inputTitle="Email"
           inputTitle1="Password"
-          inputTitle2="Confirm"
+          inputTitle2="User Name"
           sign={true}
           request={true}
           onClick={() => {
